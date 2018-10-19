@@ -369,7 +369,7 @@ export type NavigationProp<S, A> = {
 export type NavigationScreenProp<S, A> = {
   state: S,
   dispatch: NavigationDispatch<A>,
-  goBack: (routeKey?: ?string) => boolean,
+  goBack: (params?: ?{} | ?string) => boolean,
   navigate: (
     routeName: string,
     params?: NavigationParams,
