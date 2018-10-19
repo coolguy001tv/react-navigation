@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-import { Animated, Platform, StyleSheet, View } from 'react-native';
+import { Animated, Platform, StyleSheet, View, TouchableOpacity, Keyboard } from 'react-native';
 
 import HeaderTitle from './HeaderTitle';
 import HeaderBackButton from './HeaderBackButton';
@@ -242,14 +242,18 @@ class Header extends React.PureComponent<void, HeaderProps, HeaderState> {
     });
 
     return (
-      <View
+      <TouchableOpacity
         style={[StyleSheet.absoluteFill, styles.header]}
         key={`scene_${props.scene.key}`}
+        activeOpacity={1}
+        onPress={()=>{
+          Keyboard.dismiss();
+        }}
       >
         {title}
         {left}
         {right}
-      </View>
+      </TouchableOpacity>
     );
   }
 
